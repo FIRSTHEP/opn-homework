@@ -1,0 +1,12 @@
+#search_box, .ant-input, .ant-input-outlined {
+    background-color: #252836 !important;
+    border-color: #54525d !important;
+  }
+  
+  #search_box, input::placeholder {
+    color: rgb(163, 163, 163) !important;
+  }
+  
+  .custom-search .ant-input-clear-icon {
+    color: white;
+  }

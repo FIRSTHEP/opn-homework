@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Select } from 'antd';
-import useHttp from '../../hooks/use-http';
-import { get } from '../../helper/api';
+import useHttp from '../../../hooks/use-http';
+import { get } from '../../../helper/api';
 import './FilterBox.css';
 
 const FilterBox = ({ size, action, handleFilterChange }) => {

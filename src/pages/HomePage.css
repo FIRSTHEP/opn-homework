@@ -17,7 +17,7 @@ body {
 .custom-divider {
   margin-bottom: 0 !important;
   background: #54525d;
-  margin-top: 0; 
+  margin-top: 0;
 }
 
 .homepage-page {
@@ -33,87 +33,25 @@ body {
   color: white !important;
 }
 
-.homepage-header > h1 {
+.homepage-header>h1 {
   margin: 0 !important;
 }
 
-.homepage-title {
-  color: white;
-  margin: 0 !important;
-}
+@media (max-width: 768px) {
+  .homepage-header {
+    text-align: center;
+    margin-bottom: 1em;
+  }
 
-.timezone-title {
-  color: #1e232e !important;
-  margin-bottom: 1em;
-  font-size: 1.1rem;
-}
+  .custom-divider {
+    margin-bottom: 20px !important;
+  }
 
-.ant-pagination {
-  color: white !important;
-}
+  .homepage-page {
+    padding: 20px 10px;
+  }
 
-.ant-pagination-item > a {
-  color: white !important;
-}
-
-.ant-pagination-item, .ant-pagination-item-active > a {
-  color: black !important;
-}
-
-.ant-pagination-item-ellipsis {
-  color: white !important;
-}
-
-.ant-pagination-item-link {
-  color: white !important;
-}
-
-.ant-pagination-item-link:hover, .ant-pagination-item-link:focus {
-  color: white !important;
-}
-
-.pagination-container {
-  position: sticky;
-  bottom: 0;
-  background-color: #252836;
-  padding: 1em 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.ant-select:not(.ant-select-customize-input) .ant-select-selector {
-  background-color: #1F1D2B;
-  border-color: rgb(94, 94, 94);
-  color: white !important;
-}
-
-.ant-select-show-arrow {
-  color: white !important;
-}
-
-span.ant-select-arrow {
-  color: white !important;
-}
-
-.ant-select .ant-select-lg .ant-select-outlined .custom-select {
-  color: white !important;
-}
-
-span.ant-select-selection-item {
-  color: white !important;
-}
-
-#search_box, .ant-input, .ant-input-outlined {
-  background-color: #1F1D2B !important;
-  border-color: #54525d !important;
-}
-
-#search_box, input::placeholder {
-  color: rgb(163, 163, 163) !important;
-}
-
-.custom-search .ant-input-clear-icon {
-  color: white;
+  .container {
+    margin: 0 5%;
+  }
 }

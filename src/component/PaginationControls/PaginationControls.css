@@ -1,0 +1,35 @@
+.ant-pagination {
+    color: white !important;
+  }
+  
+  .ant-pagination-item > a {
+    color: white !important;
+  }
+  
+  .ant-pagination-item, .ant-pagination-item-active > a {
+    color: black !important;
+  }
+  
+  .ant-pagination-item-ellipsis {
+    color: white !important;
+  }
+  
+  .ant-pagination-item-link {
+    color: white !important;
+  }
+  
+  .ant-pagination-item-link:hover, .ant-pagination-item-link:focus {
+    color: white !important;
+  }
+  
+  .pagination-container {
+    position: sticky;
+    bottom: 0;
+    background-color: #252836;
+    padding: 1em 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

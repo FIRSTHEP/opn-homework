@@ -1,0 +1,35 @@
+.custom-select {
+    width: 100%;
+    margin: 1em 0 1em 0;
+    text-transform: capitalize;
+}
+
+span.ant-select-selection-placeholder {
+    color: rgb(163, 163, 163) !important;
+}
+
+.custom-select .ant-select-clear {
+    color: white;
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    background-color: #1F1D2B;
+    border-color: rgb(94, 94, 94);
+    color: white !important;
+}
+
+.ant-select-show-arrow {
+    color: white !important;
+}
+
+span.ant-select-arrow {
+    color: white !important;
+}
+
+.ant-select .ant-select-lg .ant-select-outlined .custom-select {
+    color: white !important;
+}
+
+span.ant-select-selection-item {
+    color: white !important;
+}
