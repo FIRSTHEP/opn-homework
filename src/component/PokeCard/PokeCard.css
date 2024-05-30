@@ -1,0 +1,57 @@
+/* Overall card styling */
+.poke-card {
+    text-align: center;
+    color: white;
+    margin-top: 135px;
+}
+
+/* Image styling */
+.poke-card-image {
+    margin: 1em 0;
+}
+
+/* Name styling */
+.poke-card-name {
+    font-weight: 600;
+    margin: 3.5em 0 2.5em;
+}
+
+/* Info styling */
+.poke-card-info {
+    margin: 0 0 0.7em 0;
+    color: #ABBBC2;
+}
+
+/* Button styling */
+.poke-card-btn {
+    width: 100% !important;
+}
+
+/* Card content background */
+.poke-card-content-bg {
+    background-color: #1F1D2B;
+    border-radius: 1.5em;
+    justify-content: center;
+    align-items: center;
+    height: 204px;
+    width: 100%;
+}
+
+.poke-image {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ant-row .poke-card-container {
+    margin: 0 1.5em 1.5em 1.5em !important;
+}
+
+.dot {
+    color: #444444;
+    font-size: 6px;
+    vertical-align: middle;
+    padding-left: 10px;
+    padding-right: 10px;
+}
