@@ -8,5 +8,5 @@
   }
   
   .custom-search .ant-input-clear-icon {
-    color: white;
+    color: white !important;
   }

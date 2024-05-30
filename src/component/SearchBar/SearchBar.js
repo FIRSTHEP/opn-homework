@@ -1,35 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import { debounce } from 'lodash';
 import './SearchBar.css';
 
-const SearchBar = ({ searchKey, setSearchKey, loading }) => {
-  const debouncedSearch = debounce((key) => {
-    setSearchKey(key.trim());
-  }, 500);
+const SearchBar = ({ setSearchKey, loading, goSearchAction }) => {
+  const [searchValue, setSearchValue] = useState('');
 
-  const handleSearch = (e) => {
-    const key = e.target.value;
-    debouncedSearch(key);
+  const onClear = () => {
+    setSearchValue('');
+    setSearchKey('');
   };
 
-  const handleClear = () => {
-    setSearchKey('');
+  const handleSearch = () => {
+    setSearchKey(searchValue);
+    goSearchAction();
   };
 
   return (
     <Input
       size="large"
       disabled={loading}
-      id="search_box"
+      value={searchValue}
       placeholder="Search by name"
+      onChange={(e) => setSearchValue(e.target.value)}
       onPressEnter={handleSearch}
-      onClear={handleClear}
+      onClear={onClear}
       className="custom-search"
       allowClear
       prefix={<SearchOutlined style={{ color: 'white' }} />}
-      style={{ backgroundColor: '#1F1D2B', color: 'blue' }}
+      style={{ color: 'white' }}
     />
   );
 };

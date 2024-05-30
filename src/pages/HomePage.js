@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Button, Row, Col, Divider, Drawer } from 'antd';
+import { Button, Row, Col, Divider, Drawer, Spin } from 'antd'; // Import Spin component
 import { ShoppingOutlined } from '@ant-design/icons';
 import useHttp from '../hooks/use-http';
 import { get } from '../helper/api';
@@ -7,6 +7,7 @@ import SearchBar from '../component/SearchBar/SearchBar';
 import FilterSection from '../component/FilterSection/FilterSection';
 import CardList from '../component/CardList/CardList';
 import PaginationControls from '../component/PaginationControls/PaginationControls';
+import { debounce } from 'lodash';
 import './HomePage.css';
 
 const HomePage = () => {
@@ -21,14 +22,8 @@ const HomePage = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (searchKey !== '') {
-      goSearchAction();
-    }
-  }, [searchKey]);
-
-  useEffect(() => {
     goSearchAction();
-  }, []);
+  }, [filters, searchKey]);
 
   useEffect(() => {
     setLoading(status === 'pending');
@@ -50,7 +45,7 @@ const HomePage = () => {
     }
     if (searchUrl) {
       searchUrl = encodeURIComponent(searchUrl);
-      baseUrl += `& q=${searchUrl} `;
+      baseUrl += `&q=${searchUrl} `;
     }
     return baseUrl;
   };
@@ -84,6 +79,19 @@ const HomePage = () => {
     goSearchAction();
   };
 
+  const handleSearch = useCallback(
+    (value) => {
+      setSearchKey(value);
+    },
+    [setSearchKey]
+  );
+  
+
+  const handleClear = () => {
+    console.log("clear");
+    goSearchAction();
+  }
+
   return (
     <div className="homepage-page">
       <Drawer title="Basic Drawer" onClose={() => setOpen(false)} open={open}>
@@ -99,7 +107,7 @@ const HomePage = () => {
             </div>
           </Col>
           <Col xs={24} md={4}>
-            <SearchBar searchKey={searchKey} setSearchKey={setSearchKey} loading={loading} />
+            <SearchBar setSearchKey={handleSearch} loading={loading} goSearchAction={goSearchAction}/>
           </Col>
           <Col xs={24} md={1} style={{ textAlign: 'right' }}>
             <Button
@@ -113,7 +121,10 @@ const HomePage = () => {
         </Row>
         <Divider className="custom-divider" />
         <FilterSection filters={filters} handleFilterChange={handleFilterChange} />
-        <CardList loading={loading} error={error} listOfCards={listOfCards} />
+        {/* Add Spin component to show loading indicator */}
+        <Spin spinning={loading}>
+          <CardList loading={loading} error={error} listOfCards={listOfCards} />
+        </Spin>
         <PaginationControls
           currentPage={currentPage}
           pageSize={pageSize}
