@@ -28,7 +28,7 @@ function httpReducer(state, action) {
 }
 
 function useHttp(requestFunction, startWithPending = false) {
-  const dispatch1 = useDispatch();
+  const authDispatch = useDispatch();
   const [httpState, dispatch] = useReducer(httpReducer, {
     status: startWithPending ? 'pending' : null,
     data: null,
@@ -40,34 +40,27 @@ function useHttp(requestFunction, startWithPending = false) {
       dispatch({ type: 'SEND' });
       try {
         const responseData = await requestFunction(requestData);
-        if (responseData.error && responseData.error === 'Unauthorized') {
+        if (responseData.error) {
           dispatch({
             type: 'ERROR',
-            errorMessage: 'Email and Password do not match!',
-            responseData,
-          });
-        } else if (responseData.message && responseData.error) {
-          dispatch({
-            type: 'ERROR',
-            errorMessage: responseData.message,
+            errorMessage: responseData.error || 'Something went wrong!',
             responseData,
           });
         } else {
           dispatch({ type: 'SUCCESS', responseData });
         }
       } catch (error) {
-        // Uncomment if needed
-        // if (error.status === 401 || error.status === 403) {
-        //   dispatch1(authActions.logout());
-        // }
+        if (error.status === 401 || error.status === 403) {
+          // authDispatch(authActions.logout());
+        }
         dispatch({
           type: 'ERROR',
           errorMessage: error.message || 'Something went wrong!',
-          responseData: null, // Or set error.responseData if needed
+          responseData: null,
         });
       }
     },
-    [requestFunction, dispatch1]
+    [requestFunction, authDispatch]
   );
 
   return {
