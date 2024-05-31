@@ -107,8 +107,6 @@ const HomePage = () => {
 
       setCart((prevCart) => [...prevCart, { ...card, qty: 1, price, totalAmount: price }]);
     }
-
-    // setOpenDrawer(true);
   };
 
   const removeFromCart = (index) => {
