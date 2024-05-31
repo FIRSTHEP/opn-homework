@@ -76,6 +76,8 @@ const FilterBox = ({ size, action, handleFilterChange }) => {
           setSelectedValue(null)
         }}
         placeholder={`${action}`}
+        dropdownStyle={{ backgroundColor: '#1F1D2B' }}
+        popupClassName="custom-dropdown"
       />
     </div>
   );

@@ -3,13 +3,13 @@ import { Row, Col, Card, Button, Image } from 'antd';
 import { ShoppingOutlined } from '@ant-design/icons';
 import './CardList.css';
 
-const CardList = ({ listOfCards }) => {
+const CardList = ({ listOfCards, addToCart }) => {
   const [size] = useState('large');
   
   return (
     <Row gutter={[16, 16]} className="poke-card-list">
       {listOfCards && listOfCards.map((data) => (
-        <Col key={data.id} xs={24} sm={12} md={8} lg={6} xl={4}>
+        <Col key={data.id} xs={24} sm={12} md={12} lg={6} xl={4}>
           <div className="poke-card">
             <div className="poke-card-content-bg">
               <Row className="poke-card-image">
@@ -23,7 +23,7 @@ const CardList = ({ listOfCards }) => {
                   />
                 </Col>
               </Row>
-              <div className="poke-card-name">{data?.name}</div>
+              <div className="poke-card-name">{data?.name.length > 20 ? `${data?.name.substring(0, 20)}...` : data?.name}</div>
               <div className="poke-card-info">
                 {`$${data?.cardmarket?.prices?.averageSellPrice?.toFixed(2) || 0.00}`}
                 <span className="dot">●</span>
@@ -31,7 +31,15 @@ const CardList = ({ listOfCards }) => {
               </div>
               <Row className="poke-card-container">
                 <Col span={24}>
-                  <Button className="poke-card-btn" size={size} icon={<ShoppingOutlined />}>Add to Cart</Button>
+                  <Button
+                    className="poke-card-btn"
+                    size={size}
+                    icon={<ShoppingOutlined />}
+                    onClick={() => addToCart(data)}
+                    style={{ backgroundColor: '#322f3c', color: 'white', border: 'none' }}
+                  >
+                    Add to Cart
+                  </Button>
                 </Col>
               </Row>
             </div>

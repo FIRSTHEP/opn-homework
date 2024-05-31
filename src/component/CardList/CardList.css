@@ -55,3 +55,19 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.no-data .ant-empty-description {
+    color: white;
+}
+
+.poke-card-btn {
+    background-color: #322f3c !important;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.poke-card-btn:hover {
+    background-color: #514c57 !important;
+    ;
+}

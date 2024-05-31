@@ -1,0 +1,9 @@
+.ant-drawer-header {
+    border-bottom: 1px !important;
+    padding-bottom: 0 !important;
+
+  }
+  
+  div.ant-drawer-body {
+    padding-top: 5px !important;
+  }

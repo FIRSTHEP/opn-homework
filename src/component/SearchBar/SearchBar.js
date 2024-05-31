@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import './SearchBar.css';
@@ -6,15 +6,22 @@ import './SearchBar.css';
 const SearchBar = ({ setSearchKey, loading, goSearchAction }) => {
   const [searchValue, setSearchValue] = useState('');
 
-  const onClear = () => {
-    setSearchValue('');
-    setSearchKey('');
-  };
-
   const handleSearch = () => {
     setSearchKey(searchValue);
     goSearchAction();
   };
+
+  const handleClear = () => {
+    setSearchValue('');
+    setSearchKey('');
+    goSearchAction();
+  };
+
+  useEffect(() => {
+    if (searchValue === '') {
+      handleClear();
+    }
+  }, [searchValue]);
 
   return (
     <Input
@@ -24,7 +31,6 @@ const SearchBar = ({ setSearchKey, loading, goSearchAction }) => {
       placeholder="Search by name"
       onChange={(e) => setSearchValue(e.target.value)}
       onPressEnter={handleSearch}
-      onClear={onClear}
       className="custom-search"
       allowClear
       prefix={<SearchOutlined style={{ color: 'white' }} />}

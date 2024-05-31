@@ -7,7 +7,7 @@ import './FilterSection.css';
 const FilterSection = ({ handleFilterChange }) => {
   return (
     <Row gutter={[16, 16]} style={{ padding: '1em 0 1em 0' }}>
-      <Col xs={8} md={12} xxl={12}>
+      <Col xs={24} md={12} xxl={12}>
       <h2 id='filter-title'>Choose Card</h2>
       </Col >
       <Col xs={8} md={4} xxl={4}>

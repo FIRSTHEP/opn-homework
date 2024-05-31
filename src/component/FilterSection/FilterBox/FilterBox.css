@@ -33,3 +33,15 @@ span.ant-select-arrow {
 span.ant-select-selection-item {
     color: white !important;
 }
+
+.custom-select.ant-select:hover .ant-select-selector {
+    border-color: #ababab !important;
+}
+
+.custom-dropdown .ant-select-item-option {
+    color: white;
+}
+
+.custom-dropdown .ant-select-item-option:hover {
+    background-color: #54525d !important;
+}
